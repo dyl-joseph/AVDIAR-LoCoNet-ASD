@@ -1,0 +1,90 @@
+name: loconet
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10  # or python=3.9 if you encounter compatibility issues
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - tqdm
+  - pillow
+  - ffmpeg
+  - easydict
+  - yacs
+  - pyyaml
+  - requests
+  - tqdm
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - notebook
+  - pip:
+      - opencv-python
+      - opencv-contrib-python
+      - tensorboard
+      - tensorboard-data-server
+      - tensorboard-plugin-wit
+      - timm
+      - addict
+      - gdown
+      - mmcv>=2.0.0  # update to latest mmcv for python 3.11
+      - mmcv-full  # if needed, but may require manual install for python 3.11
+      - mmaction2  # update to latest if needed
+      - fvcore
+      - iopath
+      - decord
+      - moviepy
+      - librosa
+      - soundfile
+      - tabulate
+      - tqdm
+      - yacs
+      - einops
+      - absl-py
+      - future
+      - filelock
+      - protobuf
+      - addict
+      - tqdm
+      - typing-extensions
+      - wget
+      - yarl
+      - orjson
+      - python-box
+      - python-dateutil
+      - pytz
+      - paramiko
+      - pycryptodome
+      - pyasn1
+      - pyasn1-modules
+      - rsa
+      - requests-oauthlib
+      - oauthlib
+      - google-auth
+      - google-auth-oauthlib
+      - grpcio
+      - starlette
+      - fastapi
+      - werkzeug
+      - uvicorn
+      - markdown
+      - markdown-it-py
+      - mdit-py-plugins
+      - mdurl
+      - monotonic
+      - portalocker
+      - pooch
+      - scikit-learn
+      - setuptools
+      - soupsieve
+      - tabulate
+      - termcolor
+      - threadpoolctl
+      - yapf
+      - zipp
+# If you encounter issues with any package, try downgrading python to 3.10 or 3.9, or pin the package to an older version.

@@ -1,0 +1,51 @@
+SEED: "20210617"
+NUM_GPUS: 1
+NUM_WORKERS: 2
+LOG_NAME: 'config.txt'
+OUTPUT_DIR: '/mnt/c/Users/dylan/LoCoNet_ASD/outputs'  # savePath
+evalDataType: "val"
+downloadAVA: False
+evaluation: False
+RESUME: False
+RESUME_PATH: ""
+RESUME_EPOCH: 0
+
+DATA:
+    dataPathAVA: '/mnt/c/Users/dylan/LoCoNet_ASD/AVDIAR2ASD'
+
+DATALOADER:
+    nDataLoaderThread: 2
+    
+
+SOLVER:
+    OPTIMIZER: "adam"
+    BASE_LR: 5e-5
+    SCHEDULER:
+        NAME: "multistep"
+        GAMMA: 0.95
+
+MODEL:
+    NUM_SPEAKERS: 3
+    CLIP_LENGTH: 200
+    AV: "speaker_temporal"
+    AV_layers: 3
+    ADJUST_ATTENTION: 0
+
+TRAIN:
+    BATCH_SIZE: 1
+    MAX_EPOCH: 25
+    AUDIO_AUG: 1 
+    TEST_INTERVAL: 1
+    TRAINER_GPU: 0
+
+
+VAL:
+    BATCH_SIZE: 1
+
+TEST:
+    BATCH_SIZE: 1
+    DATASET: 'seen'
+    MODEL: 'unseen'
+
+    
+

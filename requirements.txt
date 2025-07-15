@@ -1,0 +1,96 @@
+# LoCoNet Requirements
+# Python 3.10+ compatible
+
+# Core scientific packages
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+tqdm
+pillow
+easydict
+yacs
+pyyaml
+requests
+
+# Jupyter and development
+jupyterlab
+ipykernel
+ipywidgets
+notebook
+
+# Computer vision and multimedia
+opencv-python
+opencv-contrib-python
+ffmpeg-python
+decord
+moviepy
+librosa
+soundfile
+
+# Deep learning and ML frameworks
+timm
+addict
+gdown
+mmcv>=2.0.0
+mmcv-full
+mmaction2
+fvcore
+iopath
+einops
+
+# TensorBoard
+tensorboard
+tensorboard-data-server
+tensorboard-plugin-wit
+
+# Utilities
+absl-py
+future
+filelock
+protobuf
+typing-extensions
+wget
+yarl
+orjson
+python-box
+python-dateutil
+pytz
+paramiko
+pycryptodome
+pyasn1
+pyasn1-modules
+rsa
+requests-oauthlib
+oauthlib
+google-auth
+google-auth-oauthlib
+grpcio
+
+# Web framework
+starlette
+fastapi
+werkzeug
+uvicorn
+
+# Documentation and formatting
+markdown
+markdown-it-py
+mdit-py-plugins
+mdurl
+monotonic
+portalocker
+pooch
+setuptools
+soupsieve
+tabulate
+termcolor
+threadpoolctl
+yapf
+zipp
+
+# Note: PyTorch and related packages should be installed separately
+# For CUDA 12.x: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# For CPU only: pip install torch torchvision torchaudio 
