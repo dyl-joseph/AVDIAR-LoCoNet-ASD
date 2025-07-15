@@ -1,15 +1,17 @@
-## Modified: LoCoNet: Long-Short Context Network for Active Speaker Detection
+## Modified LoCoNet: Long-Short Context Network for Active Speaker Detection
 
-Modified LoCoNet for AVDIAR-ASD dataset ([link](https://github.com/UTDTianGroup/AVDIAR2ASD)).
+Modified [LoCoNet](https://github.com/SJTUwxz/LoCoNet_ASD) implementation for AVDIAR-ASD dataset ([link](https://github.com/UTDTianGroup/AVDIAR2ASD)).
 
 ### Dependencies
+
+This code has been tested only for Linux, specifically Ubuntu 24.04.2 (LTS).
 
 Start from building the environment
 ```
 conda env create -f environment.yml
 conda activate loconet
 ```
-after completing above, manually install the following (using pip)
+After completing above, manually install the following (using pip)
 ```
 torch 
 torchvision
@@ -19,16 +21,16 @@ warmup-scheduler-pytorch
 pytorch-lightning
 torchmetrics
 ```
-make sure all torch libraries are compatible with CUDA 11.8+ (preferably 12+).
+Make sure all torch libraries are compatible with CUDA 11.8+ (preferably 12+).
 
-**there might be a package potentially missing from these lists, please install it if you encounter a package/import not found error**
+**There might be a package potentially missing from these lists, please install it if you encounter a package/import not found error**
 
 
-then, run
+Then, run
 ```
 export PYTHONPATH=**project_dir**/dlhammer:$PYTHONPATH
 ```
-and replace **project_dir** with your code base location
+And replace **project_dir** with your code base location
 
 ### Data preparation
 
@@ -38,9 +40,9 @@ and replace **project_dir** with your code base location
 ```
 cd utils
 ```
-modify variable "phase" to be val or test
+Modify variable "phase" to be val or test
 
-then, run:
+Then, run:
 ```
 python get_multiperson_csv.py
 ```
@@ -68,7 +70,22 @@ To get results,
 cd visualize_data
 bash run.sh
 ```
-the script will run for one video (Seq21-2P-S1M1), and ground truth video and model predicted audio will be generated under visualize_data/outputs. you can modify the variable "video_id" in both python files in visualize_data to get a different scene.
+The script will run for one video (Seq21-2P-S1M1), and ground truth video and model predicted audio will be generated under visualize_data/outputs. you can modify the variable "video_id" in both python files in visualize_data to get a different scene.
+
+You can modify run.sh, as it contains a few different variables: 
+<br></br>
+OUTPUT_DIR (place to output results, it's a folder within visualize_data)
+
+VIDEO_DIR (where all your videos are stored)
+
+AUDIO_DIR (where all your audios are stored)
+
+VIDEO_ID (which audio you want to look at/visualize)
+
+CSV_PATH (path containing ground truth values)
+
+MODEL_RESULTS_CSV_PATH (path containing model's values/predictions)
+
 
 ### Citation
 
