@@ -1,49 +1,65 @@
-## LoCoNet: Long-Short Context Network for Active Speaker Detection
+## Modified: LoCoNet: Long-Short Context Network for Active Speaker Detection
 
-
+Modified LoCoNet for AVDIAR-ASD dataset ([link](https://github.com/UTDTianGroup/AVDIAR2ASD)).
 
 ### Dependencies
 
 Start from building the environment
 ```
-conda env create -f requirements.yml
+conda env create -f environment.yml
 conda activate loconet
 ```
+after completing above, manually install the following (using pip)
+```
+torch 
+torchvision
+torchaudio 
+torchlibrosa 
+warmup-scheduler-pytorch
+pytorch-lightning
+torchmetrics
+```
+make sure all torch libraries are compatible with CUDA 11.8+ (preferably 12+)
+**there might be a package potentially missing from these lists, please install it if you encounter a package/import not found error**
+
+
+then, run
+```
 export PYTHONPATH=**project_dir**/dlhammer:$PYTHONPATH
+```
 and replace **project_dir** with your code base location
-
-
 
 ### Data preparation
 
-We follow TalkNet's data preparation script to download and prepare the AVA dataset.
-
-```
-python train.py --dataPathAVA AVADataPath --download 
-```
-
-`AVADataPath` is the folder you want to save the AVA dataset and its preprocessing outputs, the details can be found in [here](https://github.com/TaoRuijie/TalkNet_ASD/blob/main/utils/tools.py#L34) . Please read them carefully.
-
-After AVA dataset is downloaded, please change the DATA.dataPathAVA entry in the config file. 
+Follow the instructions on this GitHub repository: [AVDIAR2ASD](https://github.com/UTDTianGroup/AVDIAR2ASD).
 
 #### Training script
 ```
 python -W ignore::UserWarning train.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
 
-
-
 #### Pretrained model
 
 Please download the LoCoNet trained weights on AVA dataset [here](https://drive.google.com/file/d/1EX-V464jCD6S-wg68yGuAa-UcsMrw8mK/view?usp=sharing).
 
+#### Evaluate model
+Run this script to evaluate the model 
 ```
 python -W ignore::UserWarning test_multicard.py --cfg configs/multi.yaml  RESUME_PATH {model download path}
 ```
+07/15/2025: Average Accuracy of 85-86%
+
+#### Print results
+To print results,
+```
+cd visualize_data
+bash run.sh
+```
+the script will run for one video (Seq21-2P-S1M1), and ground truth video and model predicted audio will be generated under visualize_data/outputs.
 
 ### Citation
 
-Please cite the following if our paper or code is helpful to your research.
+Please cite the following (loconet paper): 
 ```
 @article{wang2023loconet,
   title={LoCoNet: Long-Short Context Network for Active Speaker Detection},
