@@ -1,8 +1,10 @@
 import os, pandas
 import json
+from dlhammer import bootstrap
 
+cfg = bootstrap(print_cfg=False)
 phase = "val"
-path = "/mnt/c/Users/dylan/LoCoNet_ASD/AVDIAR2ASD/csv"
+path = os.path.join(cfg.DATA.dataPathAVA, "csv")
 
 if phase == "train":
     csv_f = "train_loader.csv"
