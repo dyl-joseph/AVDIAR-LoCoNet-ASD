@@ -19,7 +19,8 @@ warmup-scheduler-pytorch
 pytorch-lightning
 torchmetrics
 ```
-make sure all torch libraries are compatible with CUDA 11.8+ (preferably 12+)
+make sure all torch libraries are compatible with CUDA 11.8+ (preferably 12+).
+
 **there might be a package potentially missing from these lists, please install it if you encounter a package/import not found error**
 
 
@@ -31,14 +32,26 @@ and replace **project_dir** with your code base location
 
 ### Data preparation
 
-Follow the instructions on this GitHub repository: [AVDIAR2ASD](https://github.com/UTDTianGroup/AVDIAR2ASD).
+1. Follow the instructions on this GitHub repository: [AVDIAR2ASD](https://github.com/UTDTianGroup/AVDIAR2ASD).
+2. Under configs/multi.yaml, modify output directory (line 5) to where you want to store your outputs. Also modify 'dataPathAVA' (line 14) to be the location of your dataset.
+3. **IF** the codebase does not auto generate .json files, run
+```
+cd utils
+```
+modify variable "phase" to be val or test
+
+then, run:
+```
+python get_multiperson_csv.py
+```
 
 #### Training script
 ```
 python -W ignore::UserWarning train.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
+### Model related tasks
 
-#### Pretrained model
+#### Pretrained model weights
 
 Please download the LoCoNet trained weights on AVA dataset [here](https://drive.google.com/file/d/1EX-V464jCD6S-wg68yGuAa-UcsMrw8mK/view?usp=sharing).
 
@@ -49,13 +62,13 @@ python -W ignore::UserWarning test_multicard.py --cfg configs/multi.yaml  RESUME
 ```
 07/15/2025: Average Accuracy of 85-86%
 
-#### Print results
-To print results,
+#### Get results
+To get results,
 ```
 cd visualize_data
 bash run.sh
 ```
-the script will run for one video (Seq21-2P-S1M1), and ground truth video and model predicted audio will be generated under visualize_data/outputs.
+the script will run for one video (Seq21-2P-S1M1), and ground truth video and model predicted audio will be generated under visualize_data/outputs. you can modify the variable "video_id" in both python files in visualize_data to get a different scene.
 
 ### Citation
 
@@ -70,8 +83,8 @@ Please cite the following (loconet paper):
 ```
 
 
-### Acknowledge
-
-The code base of this project is studied from [TalkNet](https://github.com/TaoRuijie/TalkNet-ASD) which is a very easy-to-use ASD pipeline.
+### Acknowledgement
+The code base of this project is from [LoCoNet](https://github.com/SJTUwxz/LoCoNet_ASD). 
+The code base of LoCoNet is studied from [TalkNet](https://github.com/TaoRuijie/TalkNet-ASD) which is a very easy-to-use ASD pipeline.
 
 
