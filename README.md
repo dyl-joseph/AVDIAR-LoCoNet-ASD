@@ -62,7 +62,7 @@ Run this script to evaluate the model
 ```
 python -W ignore::UserWarning test_multicard.py --cfg configs/multi.yaml  RESUME_PATH {model download path}
 ```
-07/15/2025: Average Accuracy of 85-86%
+08/13/2025: Average Accuracy of 88% (this model has not been uploaded yet)
 
 #### Get results
 To get results,
